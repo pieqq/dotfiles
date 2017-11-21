@@ -1,0 +1,16 @@
+[credential]
+    helper = cache
+[core]
+	editor = vim
+[url "git+ssh://pieq@git.launchpad.net/"]
+    insteadof = lp:
+[url "git+ssh://pieq@git.launchpad.net/"]
+    insteadof = git+ssh://git.launchpad.net/
+[push]
+	default = simple
+[diff]
+	tool = meld
+[merge]
+	tool = meld
+[difftool]
+	prompt = false
