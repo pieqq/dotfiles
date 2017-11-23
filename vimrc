@@ -128,8 +128,17 @@ set pastetoggle=<F2>
 " to be pasted everywhere else (the opposite is also true)
 set clipboard^=unnamedplus
 
+" Snippets
+" ========
+
+nnoremap ,pdb A<CR>import pdb; pdb.set_trace()<ESC>
+
 " Custom commands
 " ===============
 
 " :W - To write with root rights
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+
+" :MakeTags to re-process tags
+" from: <https://github.com/mcantor/no_plugins/blob/master/no_plugins.vim>
+command MakeTags !ctags -R .
