@@ -38,6 +38,7 @@ set hidden " Allow hidden buffers, don't limit to 1 file per window/split
 set timeoutlen=1000 ttimeoutlen=0 " No more delay when pressing Esc <http://stackoverflow.com/questions/15550100/>
 set directory=$HOME/.vim/swaps//
 set backupdir=$HOME/.vim/backups//
+let mapleader=','
 
 " Search down into subfolders
 " Provides tab completion for all file-related tasks
@@ -121,17 +122,21 @@ set sidescroll=1
 " ============
 
 " Toggle the paste mode (to avoid auto-indentation when pasting from the clipboard)
-set pastetoggle=<F2>
+set pastetoggle=<leader>t
 
 " Using the X clipboard as the + register
 " Thanks to this, everything copied/cut from vim is automatically available
 " to be pasted everywhere else (the opposite is also true)
-set clipboard^=unnamedplus
+"set clipboard^=unnamedplus
+
+" Use xsel to copy to/read from the X clipboard.
+vnoremap <leader>y :w !DISPLAY=:0 xsel -b<cr><cr>
+nnoremap <leader>p :r !xsel -b<cr>
 
 " Snippets
 " ========
 
-nnoremap ,pdb A<CR>import pdb; pdb.set_trace()<ESC>
+nnoremap <leader>db A<CR>import pdb; pdb.set_trace()<ESC>
 
 " Custom commands
 " ===============
